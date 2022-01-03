@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public int health;
     public Text scoreText;
     public Text healthText;
+    public Text winloseText;
+    public Image winloseImage;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +48,8 @@ public class PlayerController : MonoBehaviour
         }
         if (other.tag == "Goal")
         {
-            Debug.Log("You win!");
+            //Debug.Log("You win!");
+            Win();
         }
     }
     private void Update()
@@ -64,5 +67,12 @@ public class PlayerController : MonoBehaviour
     void SetHealthText()
     {
         healthText.text = "Health: " + health;
+    }
+    void Win()
+    {
+        winloseImage.gameObject.SetActive(true);
+        winloseText.color = Color.black;
+        winloseImage.color = Color.green;
+        winloseText.text = "You Win!";
     }
 }
