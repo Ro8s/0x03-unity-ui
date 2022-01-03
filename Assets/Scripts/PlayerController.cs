@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private int score;
     public int health;
     public Text scoreText;
+    public Text healthText;
 
     // Start is called before the first frame update
     void Start()
@@ -34,13 +35,14 @@ public class PlayerController : MonoBehaviour
         {
             score += 1;
             SetScoreText();
-            Debug.Log("Score: " + score);
+            //Debug.Log("Score: " + score);
             Destroy(other.gameObject);
         }
         if (other.tag == "Trap")
         {
             health -= 1;
-            Debug.Log("Health: " + health);
+            //Debug.Log("Health: " + health);
+            SetHealthText();
         }
         if (other.tag == "Goal")
         {
@@ -58,5 +60,9 @@ public class PlayerController : MonoBehaviour
     void SetScoreText()
     {
         scoreText.text = "Score: " + score;
+    }
+    void SetHealthText()
+    {
+        healthText.text = "Health: " + health;
     }
 }
