@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class PlayerController : MonoBehaviour
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     private int score;
     public int health;
+    public Text scoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,7 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "Pickup")
         {
             score += 1;
+            SetScoreText();
             Debug.Log("Score: " + score);
             Destroy(other.gameObject);
         }
@@ -51,5 +54,9 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Game Over!");
             SceneManager.LoadScene("maze");
         }
+    }
+    void SetScoreText()
+    {
+        scoreText.text = "Score: " + score;
     }
 }
