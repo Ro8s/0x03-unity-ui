@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("You win!");
             Win();
+            StartCoroutine(LoadScene(3));
         }
     }
     private void Update()
@@ -58,7 +59,7 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("Game Over!");
             GameOver();
-            //SceneManager.LoadScene("maze");
+            StartCoroutine(LoadScene(3));
         }
     }
     void SetScoreText()
@@ -82,5 +83,10 @@ public class PlayerController : MonoBehaviour
         winloseText.color = Color.white;
         winloseImage.color = Color.red;
         winloseText.text = "Game Over!";
+    }
+    IEnumerator LoadScene(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene("maze");
     }
 }
