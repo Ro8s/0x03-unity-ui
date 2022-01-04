@@ -61,6 +61,10 @@ public class PlayerController : MonoBehaviour
             GameOver();
             StartCoroutine(LoadScene(3));
         }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("menu");
+        }
     }
     void SetScoreText()
     {
