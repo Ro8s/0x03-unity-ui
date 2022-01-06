@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
+///<summary> Player Controller, where it's definded the movement of the player, his hp and score</summary>
+
 public class PlayerController : MonoBehaviour
 {
     Rigidbody rb;
